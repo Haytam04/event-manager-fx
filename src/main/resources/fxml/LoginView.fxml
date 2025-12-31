@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox alignment="CENTER" spacing="15.0" xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.eventmanager.controller.LoginController"
+      style="-fx-background-color: #f4f4f4;">
+    <padding>
+        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+    </padding>
+
+    <Label text="Event Manager Login" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+
+    <TextField fx:id="txtUsername" promptText="Username" prefWidth="250" />
+    <PasswordField fx:id="txtPassword" promptText="Password" prefWidth="250" />
+
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Login" onAction="#handleLogin"
+                style="-fx-background-color: #2196F3; -fx-text-fill: white;" prefWidth="80"/>
+        <Button text="Sign Up" onAction="#handleSignUp"
+                style="-fx-background-color: #4CAF50; -fx-text-fill: white;" prefWidth="80"/>
+    </HBox>
+
+    <Label fx:id="lblMessage" style="-fx-text-fill: red;" />
+</VBox>

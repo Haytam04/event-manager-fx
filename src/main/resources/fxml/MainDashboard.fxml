@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.eventmanager.controller.DashboardController">
+    <top>
+        <HBox spacing="20" style="-fx-background-color: #333; -fx-padding: 15;">
+            <Label text="Event Management System" style="-fx-text-fill: white; -fx-font-size: 18;" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Label fx:id="lblWelcome" style="-fx-text-fill: white;" />
+            <Button text="Logout" onAction="#handleLogout" />
+        </HBox>
+    </top>
+    <center>
+        <VBox alignment="CENTER" spacing="20">
+            <Label text="Welcome to your Dashboard!" style="-fx-font-size: 24;" />
+            <Button text="Manage Events" prefWidth="200" style="-fx-font-size: 14;" />
+        </VBox>
+    </center>
+</BorderPane>
