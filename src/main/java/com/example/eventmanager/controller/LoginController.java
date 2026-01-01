@@ -64,8 +64,12 @@ public class LoginController {
         try {
             Parent dashboard = FXMLLoader.load(getClass().getResource("/fxml/MainDashboard.fxml"));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(dashboard));
+
+            Scene scene = new Scene(dashboard, 1000, 700);
+
+            stage.setScene(scene);
             stage.setTitle("Event Management - Dashboard");
+            stage.centerOnScreen();
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();

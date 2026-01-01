@@ -17,7 +17,11 @@ public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String title;
+    private String location; // New
+    private String imageUrl; // New (Store URL or file path)
+    private Integer maxParticipants; // New
     private LocalDateTime date;
 
     @ManyToOne
