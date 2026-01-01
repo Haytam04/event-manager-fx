@@ -1,0 +1,48 @@
+/* Base styles */
+.root {
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-accent: #6200EE; /* Modern Purple */
+}
+
+/* Card Style */
+.event-card {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 5);
+}
+
+.event-card:hover {
+    -fx-effect: dropshadow(three-pass-box, rgba(98,0,238,0.2), 15, 0, 0, 8);
+}
+
+/* Buttons */
+.button-primary {
+    -fx-background-color: #6200EE;
+    -fx-text-fill: white;
+    -fx-background-radius: 5;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.button-primary:hover { -fx-background-color: #3700B3; }
+
+.button-danger {
+    -fx-background-color: transparent;
+    -fx-text-fill: #B00020;
+    -fx-border-color: #B00020;
+    -fx-border-radius: 5;
+}
+
+.button-danger:hover { -fx-background-color: #fce8e6; }
+
+/* Text Fields */
+.text-field {
+    -fx-background-color: #f5f5f5;
+    -fx-border-color: transparent transparent #bdbdbd transparent;
+    -fx-border-width: 0 0 2 0;
+    -fx-padding: 8;
+}
+
+.text-field:focused {
+    -fx-border-color: transparent transparent #6200EE transparent;
+}

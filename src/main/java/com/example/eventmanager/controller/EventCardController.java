@@ -6,12 +6,15 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Optional;
 
 public class EventCardController {
     @FXML private ImageView imgEvent;
@@ -40,8 +43,20 @@ public class EventCardController {
 
     @FXML
     private void onDelete() {
-        eventService.deleteEvent(event);
-        dashboardController.refreshEvents(); // Trigger dashboard UI update
+        // Create the confirmation dialog
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Delete Event");
+        alert.setHeaderText("Are you sure you want to delete this event?");
+        alert.setContentText("Event: " + event.getTitle() + "\nThis action cannot be undone.");
+
+        // Show the dialog and wait for the user's response
+        Optional<ButtonType> result = alert.showAndWait();
+
+        // Check if the user clicked "OK"
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            eventService.deleteEvent(event);
+            dashboardController.refreshEvents(); // Trigger dashboard UI update
+        }
     }
 
     @FXML

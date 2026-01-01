@@ -4,6 +4,8 @@ import com.example.eventmanager.dao.EventDAO;
 import com.example.eventmanager.entity.Event;
 import com.example.eventmanager.utils.SessionManager;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +17,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 public class DashboardController {
     @FXML private FlowPane eventFlowPane;
@@ -50,6 +53,20 @@ public class DashboardController {
 
     @FXML
     private void handleLogout(ActionEvent event) throws IOException {
+        // 1. Create a confirmation alert [cite: 5, 13]
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Logout Confirmation");
+        alert.setHeaderText("Log Out of EventHub");
+        alert.setContentText("Are you sure you want to log out?");
+
+        // 2. Show the dialog and capture the user's choice [cite: 5, 13]
+        Optional<ButtonType> result = alert.showAndWait();
+
+        // 3. Only proceed if the user clicks OK [cite: 5, 13]
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            SessionManager.logout(); // Clear the current session
+        }
+
         SessionManager.logout();
         Parent loginView = FXMLLoader.load(getClass().getResource("/fxml/LoginView.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
